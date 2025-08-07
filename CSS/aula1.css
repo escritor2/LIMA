@@ -1,0 +1,21 @@
+/* Formatação de Paragrafos */
+p {
+    color: rgb(255, 0, 0);
+    font-family:'courier new', Courier, monospace;
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(0, 0, 255);
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(0, 128, 0);
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+    text-align: center;
+}
