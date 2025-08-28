@@ -3,96 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="cruz.ico" type="image/x-icon">
+    <meta name="description" content="Paróquia Santo Antônio - Comunidade de fé, amor e esperança. Missas, eventos e atividades paroquiais.">
+    <meta name="keywords" content="igreja, paróquia, santo antônio, missa, comunidade, fé">
+    <meta name="author" content="Paróquia Santo Antônio">
+    <link rel="shortcut icon" href="icons/igreja.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="igreja.css">
-    <title>Paróquia Santo Antônio</title>
+    <title>Paróquia Santo Antônio - Onde a Fé e a Comunidade se Encontram</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#missas">Missas</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#quermesse">Quermesse</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-spinner">
+            <div class="cross-icon">✝</div>
+            <p>Carregando...</p>
+        </div>
+    </div>
 
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-church"></i>
+                <span>Paróquia Santo Antônio</span>
+            </div>
+            
+            <nav class="navigation">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Início</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                    <li><a href="#missas" class="nav-link">Missas</a></li>
+                    <li><a href="#eventos" class="nav-link">Eventos</a></li>
+                    <li><a href="#quermesse" class="nav-link">Quermesse</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Paróquia Santo Antônio</h1>
-            <p>"Onde a fé e a comunidade se encontram"</p>
+            <h1 class="hero-title">Paróquia Santo Antônio</h1>
+            <p class="hero-subtitle">"Onde a fé e a comunidade se encontram"</p>
+            <div class="hero-buttons">
+                <a href="#missas" class="btn btn-primary">Horários de Missa</a>
+                <a href="#eventos" class="btn btn-secondary">Nossos Eventos</a>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
+    <!-- Main Content -->
     <main>
-        <section id="sobre">
-            <h2>Sobre Nossa Paróquia</h2>
-            <p>Fundada em 1950, a Paróquia Santo Antônio tem servido a comunidade local com dedicação e amor. Nossa missão é promover os valores cristãos através da oração, caridade e comunhão.</p>
-            
-            <div class="galeria">
-                <img src="image.png" alt="Vista externa da igreja" width="1000px" height="600px">
+        <!-- About Section -->
+        <section id="sobre" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Sobre Nossa Paróquia</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="lead">Fundada em 1950, a Paróquia Santo Antônio tem servido a comunidade local com dedicação e amor incondicional.</p>
+                        <p>Nossa missão é promover os valores cristãos através da oração, caridade e comunhão, criando um espaço acolhedor onde cada pessoa pode encontrar paz, esperança e crescimento espiritual.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="73">0</div>
+                                <div class="stat-label">Anos de História</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="500">0</div>
+                                <div class="stat-label">Famílias</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="12">0</div>
+                                <div class="stat-label">Grupos Ativos</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <div class="image-frame">
+                            <img src="image.png" alt="Vista externa da Paróquia Santo Antônio" class="church-image">
+                            <div class="image-overlay">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="missas">
-            <h2>Horários de Missa</h2>
-            <div class="evento">
-                <h3>Missa Dominical</h3>
-                <p class="data-evento">Domingos: 8h</p>
-                <p>Celebração eucarística com toda a comunidade paroquial.</p>
+        <!-- Mass Times Section -->
+        <section id="missas" class="section mass-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Horários de Missa</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Participe das nossas celebrações e fortaleça sua fé</p>
+                </div>
+                
+                <div class="mass-grid">
+                    <div class="mass-card">
+                        <div class="mass-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <h3>Missa Dominical</h3>
+                        <div class="mass-time">Domingos: 8h</div>
+                        <p>Celebração eucarística com toda a comunidade paroquial. Momento de união e renovação da fé.</p>
+                    </div>
+                    
+                    <div class="mass-card">
+                        <div class="mass-icon">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <h3>Missa Semanal</h3>
+                        <div class="mass-time">Quartas-feiras: 19h</div>
+                        <p>Momento de oração e reflexão durante a semana. Ideal para quem busca fortalecimento espiritual.</p>
+                    </div>
+                    
+                    <div class="mass-card">
+                        <div class="mass-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Próxima Missa</h3>
+                        <div class="mass-form">
+                            <label>Verifique a data:</label>
+                            <input type="date" class="date-input">
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="evento">
-                <h3>Missa Semanal</h3>
-                <p class="data-evento">quartas-feiras: 19h | Domingos: 8h</p>
-                <p>Momento de oração e reflexão durante a semana.</p>
-            </div>
-
-            <div class="evento">
-                <h3>proxima missa</h3>
-                <p>
-                    <label>
-                        DATA:
-                        <input type="date" name="data">
-                    </label>
-                </p>
-            
         </section>
 
-        <section id="eventos">
-            <h2>Eventos Paroquiais</h2>
-            
-            <div class="evento">
-                <h3>Grupo de Jovens</h3>
-                <p class="data-evento">Todos os sabados às 20h</p>
-                <p>Encontros de formação, oração e atividades para jovens de 15 a 30 anos.</p>
+        <!-- Events Section -->
+        <section id="eventos" class="section events-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Eventos Paroquiais</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Junte-se à nossa comunidade em atividades espirituais e sociais</p>
+                </div>
+                
+                <div class="events-grid">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Grupo de Jovens</h3>
+                        </div>
+                        <div class="event-time">Sábados às 20h</div>
+                        <p>Encontros de formação, oração e atividades para jovens de 15 a 30 anos. Cresça na fé com outros jovens.</p>
+                        <a href="#contato" class="event-link">Participar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <i class="fas fa-book-bible"></i>
+                            <h3>Catequese</h3>
+                        </div>
+                        <div class="event-time">Segundas-feiras às 18h</div>
+                        <p>Preparação para Primeira Eucaristia e Crisma. Formação cristã para crianças, jovens e adultos.</p>
+                        <a href="#contato" class="event-link">Inscrever-se <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <i class="fas fa-hands-praying"></i>
+                            <h3>Grupo de Oração</h3>
+                        </div>
+                        <div class="event-time">Quintas-feiras às 15h</div>
+                        <p>Momento de oração comunitária e partilha da Palavra de Deus. Fortaleça sua vida espiritual.</p>
+                        <a href="#contato" class="event-link">Participar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-            
-            <div class="evento">
-                <h3>Catequese</h3>
-                <p class="data-evento">Segunda-feira às 18h </p>
-                <p>Preparação para Primeira Eucaristia e Crisma.</p>
-            </div>
-            
         </section>
 
-        <section id="quermesse">
-            <h2>Quermesse de Santo Antônio</h2>
-            <p>A tradicional quermesse em homenagem ao nosso padroeiro acontece todos os anos em junho e setembro.</p>
+        <!-- Fair Section -->
+        <section id="quermesse" class="section fair-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Quermesse de Santo Antônio</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="fair-content">
+                    <div class="fair-text">
+                        <p class="lead">A tradicional quermesse em homenagem ao nosso padroeiro acontece todos os anos em junho.</p>
+                        <p>Uma festa repleta de alegria, comidas típicas, jogos, apresentações culturais e muita diversão para toda a família. Venha fazer parte desta celebração!</p>
+                        
+                        <div class="countdown">
+                            <h4>Próxima Quermesse:</h4>
+                            <div class="countdown-timer">
+                                <div class="countdown-item">
+                                    <span class="countdown-number">00</span>
+                                    <span class="countdown-label">Dias</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number">00</span>
+                                    <span class="countdown-label">Horas</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number">00</span>
+                                    <span class="countdown-label">Minutos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fair-image">
+                        <div class="decorative-element">
+                            <i class="fas fa-utensils"></i>
+                            <i class="fas fa-music"></i>
+                            <i class="fas fa-gift"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </section id="sugestoes">
-        <p>
-            <label>
-                Deixe sua sugestão: <br>
-                <textarea cols="30" rows="5"></textarea>
-            </label>
-        </p>
-            
-    <footer>
-        <p>&copy; 2025 Paróquia Santo Antônio - Todos os direitos reservados</p>
-        <p>Desenvolvido com amor pela comunidade paroquial Capela Santo Antonio</s></p>
+        <!-- Suggestions Section -->
+        <section id="sugestoes" class="section suggestions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Deixe sua Sugestão</h2>
+                    <div class="section-divider"></div>
+                    <p class="section-subtitle">Sua opinião é importante para nossa comunidade</p>
+                </div>
+                
+                <form class="suggestion-form">
+                    <div class="form-group">
+                        <label for="suggestion">Sua sugestão:</label>
+                        <textarea id="suggestion" placeholder="Compartilhe suas ideias e sugestões..." rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Sugestão
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em Contato</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Rua da Fé, 123 - Centro<br>Cidade - Estado</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telefone</h4>
+                                <p>(11) 9999-9999</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contato@paroquiasantoantonio.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Siga-nos</h4>
+                        <div class="social-grid">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-church"></i>
+                    <span>Paróquia Santo Antônio</span>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#missas">Missas</a>
+                    <a href="#eventos">Eventos</a>
+                    <a href="#contato">Contato</a>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Paróquia Santo Antônio - Todos os direitos reservados</p>
+                    <p>Desenvolvido com ❤️ pela comunidade paroquial</p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="igreja.js"></script>
 </body>
 </html>
