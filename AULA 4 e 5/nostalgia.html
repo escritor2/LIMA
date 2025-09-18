@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nostalgia Animada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+    }
+
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2rem;
+      color: #000;
+      text-shadow: 3px 3px #ffff00;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #111;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1rem;
+      color: #ffff00;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    .watch-btn {
+      display: block;
+      text-align: center;
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .watch-btn:hover {
+      background: #ffff00;
+    }
+
+    /* Miniplayer */
+    #miniplayer {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 360px;
+      background: #111;
+      border: 3px solid #ff00ff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.6);
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    #miniplayer iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+
+    #miniplayer .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      background: #1a1a1a;
+    }
+
+    #miniplayer .controls span {
+      color: #ffff00;
+      font-size: 0.8rem;
+    }
+
+    #miniplayer .close {
+      background: #ff0000;
+      border: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #aaa;
+      border-top: 2px solid #ff00ff;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NOSTALGIA ANIMADA</h1>
+    <p>Desenhos dos anos 80 e 90 - Reviva a magia!</p>
+  </header>
+
+  <section class="gallery">
+    <div class="card">
+      <img src="https://m.media-amazon.com/images/M/MV5BODgyYzRhNzAtMTJlNC00OTM0LWI3M2ItNzZjYzYxZmJiOWIyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNDUxNjc5NjY@._V1_FMjpg_UX1000_.jpg" alt="He-Man clássico">
+      <div class="card-content">
+        <h3>HE-MAN</h3>
+        <p>O príncipe Adam se transforma no poderoso He-Man para proteger Eternia.</p>
+        <button class="watch-btn" onclick="playVideo('https://www.youtube.com/embed/I9FjEY-wxt4')">▶ ASSISTIR</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.MKKnrdks2NTbv8lDTn7pwwHaDt?w=1800&h=900&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Thundercats clássico">
+      <div class="card-content">
+        <h3>THUNDERCATS</h3>
+        <p>Guerreiros felinos lutam contra Mumm-Ra na Terra.</p>
+        <button class="watch-btn" onclick="playVideo('https://www.youtube.com/embed/WouK85NujO8')">▶ ASSISTIR</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://i.redd.it/cnvi25bnblv71.jpg" alt="Dragon Ball Z clássico">
+      <div class="card-content">
+        <h3>DRAGON BALL Z</h3>
+        <p>Goku e amigos enfrentam inimigos poderosos com transformações Saiyajin.</p>
+        <button class="watch-btn" onclick="playVideo('https://www.youtube.com/embed/BLpSan_nlOc')">▶ ASSISTIR</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Miniplayer -->
+  <div id="miniplayer">
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    <div class="controls">
+      <span>▶ Nostalgia Animada</span>
+      <button class="close" onclick="closePlayer()">X</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2024 Nostalgia Animada - Reviva sua infância!
+  </footer>
+
+  <script>
+    function playVideo(url) {
+      const player = document.getElementById('miniplayer');
+      const iframe = document.getElementById('videoFrame');
+      iframe.src = url + "?autoplay=1";
+      player.style.display = 'block';
+    }
+
+    function closePlayer() {
+      const player = document.getElementById('miniplayer');
+      const iframe = document.getElementById('videoFrame');
+      iframe.src = "";
+      player.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

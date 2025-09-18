@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho - Vitrine 2025</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    h1 { color: #333; }
+    #itens-carrinho div { margin: 8px 0; }
+    button {
+      padding: 8px 12px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seu Carrinho</h1>
+  <div id="itens-carrinho"></div>
+  <p><strong>Total:</strong> R$ <span id="total">0,00</span></p>
+  <button onclick="finalizarCompra()">Finalizar Compra</button>
+
+  <script>
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    function atualizarCarrinho(){
+      const itensDiv = document.getElementById("itens-carrinho");
+      itensDiv.innerHTML = "";
+      let total = 0;
+      carrinho.forEach(item => {
+        total += item.preco * item.qtd;
+        const div = document.createElement("div");
+        div.textContent = `${item.nome} - ${item.qtd}x - R$ ${(item.preco * item.qtd).toFixed(2)}`;
+        itensDiv.appendChild(div);
+      });
+      document.getElementById("total").textContent = total.toFixed(2);
+    }
+
+    function finalizarCompra(){
+      if(carrinho.length === 0){
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+      alert("Compra finalizada com sucesso! Obrigado por comprar na Vitrine 2025.");
+      carrinho = [];
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      atualizarCarrinho();
+    }
+
+    atualizarCarrinho();
+  </script>
+</body>
+</html>
