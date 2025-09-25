@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Essentials</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-divider { margin: 3rem 0; border-top: 2px dashed #dee2e6; }
+        .example-card { border: 1px solid #dee2e6; border-radius: 0.375rem; padding: 1.5rem; margin-bottom: 2rem; }
+        .placeholder-img { background: #f8f9fa; border: 2px dashed #6c757d; height: 200px; display: flex; align-items: center; justify-content: center; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <!-- Navbar Principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <strong>Bootstrap Examples</strong>
+            </a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="#headers">Headers</a>
+                <a class="nav-link" href="#heroes">Heroes</a>
+                <a class="nav-link" href="#footers">Footers</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <!-- HEADERS -->
+        <section id="headers" class="mb-5">
+            <h2 class="mb-4">📋 Headers</h2>
+            
+            <div class="example-card">
+                <h5>Header Simples</h5>
+                <header class="d-flex justify-content-between align-items-center py-3 border-bottom">
+                    <div class="d-flex align-items-center">
+                        <strong class="fs-4">Logo</strong>
+                    </div>
+                    <nav class="nav">
+                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link" href="#">Sobre</a>
+                        <a class="nav-link" href="#">Contato</a>
+                    </nav>
+                </header>
+            </div>
+
+            <div class="example-card">
+                <h5>Header com Busca</h5>
+                <header class="bg-dark text-white p-3 rounded">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <strong>Site Name</strong>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <input type="search" class="form-control" placeholder="Buscar...">
+                            <button class="btn btn-outline-light">Login</button>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </section>
+        <img src="image copy 3.png" alt="">
+
+        <div class="section-divider"></div>
+
+        <!-- HEROES -->
+        <section id="heroes" class="mb-5">
+            <h2 class="mb-4"> Heroes</h2>
+            
+            <div class="example-card">
+                <h5>Hero Centralizado</h5>
+                <div class="text-center py-5 bg-light rounded">
+                    <h1 class="display-5 fw-bold">Título Impactante</h1>
+                    <p class="lead">Descrição breve e persuasiva do seu produto ou serviço.</p>
+                    <button class="btn btn-primary btn-lg">Começar Agora</button>
+                    <button class="btn btn-outline-secondary btn-lg">Saber Mais</button>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h5>Hero com Imagem</h5>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>Conheça Nosso Produto</h2>
+                        <p>Recursos incríveis que vão transformar seu negócio.</p>
+                        <button class="btn btn-success">Experimente Grátis</button>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="placeholder-img">
+                            Imagem do Produto
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-card">
+                <h5>Hero com Formulário</h5>
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h2>Junte-se a Nós</h2>
+                        <p>Preencha o formulário para criar sua conta.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="p-4 border rounded bg-light">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Seu email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Senha">
+                            </div>
+                            <button class="btn btn-primary w-100">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- FOOTERS -->
+        <section id="footers" class="mb-5">
+            <h2 class="mb-4"> Footers</h2>
+            
+            <div class="example-card">
+                <h5>Footer Básico</h5>
+                <footer class="py-4 border-top">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>&copy; 2025 Minha Empresa</span>
+                        <nav class="nav">
+                            <a class="nav-link" href="#">Privacidade</a>
+                            <a class="nav-link" href="#">Termos</a>
+                            <a class="nav-link" href="#">Suporte</a>
+                        </nav>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="example-card">
+                <h5>Footer com Colunas</h5>
+                <footer class="py-5 bg-dark text-white rounded">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Nossa Empresa</h5>
+                            <p>Missão e valores da organização.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Links Rápidos</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="text-white-50">Home</a></li>
+                                <li><a href="#" class="text-white-50">Produtos</a></li>
+                                <li><a href="#" class="text-white-50">Contato</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Newsletter</h5>
+                            <div class="d-flex gap-2">
+                                <input type="email" class="form-control" placeholder="Email">
+                                <button class="btn btn-outline-light">Inscrever</button>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="example-card">
+                <h5>Footer Minimalista</h5>
+                <footer class="py-3 text-center text-muted">
+                    <p>&copy; 2025 Todos os direitos reservados. | 
+                       <a href="#" class="text-muted">Privacidade</a> • 
+                       <a href="#" class="text-muted">Termos</a>
+                    </p>
+                </footer>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Global -->
+    <footer class="bg-light py-4 mt-5 border-top">
+        <div class="container text-center">
+            <p class="mb-0">Exemplos Bootstrap • 
+                <a href="#headers" class="text-decoration-none">Headers</a> • 
+                <a href="#heroes" class="text-decoration-none">Heroes</a> • 
+                <a href="#footers" class="text-decoration-none">Footers</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
