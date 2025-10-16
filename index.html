@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHFIT: A Academia que Inspira | Planos e Atividades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0f0f1e;
+            --dark-secondary: #1a1a2e;
+            --dark-tertiary: #2d2d44;
+            --accent-orange: #ff6b35;
+            --accent-cyan: #00d9ff;
+            --accent-purple: #9d4edd;
+            --text-light: #f0f0f0;
+            --text-muted: #b0b0b0;
+            --gradient-main: linear-gradient(135deg, #ff6b35 0%, #9d4edd 100%);
+            --gradient-secondary: linear-gradient(135deg, #00d9ff 0%, #9d4edd 100%);
+            --gradient-accent: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        .cabecalho {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 30, 0.92);
+            backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .cabecalho:hover {
+            background: rgba(15, 15, 30, 0.98);
+            border-bottom-color: rgba(255, 107, 53, 0.5);
+        }
+
+        .cabecalho__logo-busca {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-main);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+        }
+
+        .busca {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .busca__input {
+            padding: 0.8rem 2.5rem 0.8rem 1.2rem;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            background: rgba(45, 45, 68, 0.6);
+            border-radius: 50px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .busca__input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .busca__input:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background: rgba(45, 45, 68, 0.9);
+            width: 380px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+        }
+
+        .busca__botao {
+            position: absolute;
+            right: 5px;
+            background: var(--gradient-main);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .busca__botao:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .menu {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .menu__item {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .menu__item::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            transition: width 0.3s ease;
+        }
+
+        .menu__item:hover {
+            color: var(--accent-orange);
+        }
+
+        .menu__item:hover::after {
+            width: 100%;
+        }
+
+        .cabecalho__utilitarios {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .utilitario__botao, .utilitario__link {
+            padding: 0.6rem 1.2rem;
+            background: rgba(45, 45, 68, 0.6);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 50px;
+            color: var(--text-light);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .utilitario__botao:hover, .utilitario__link:hover {
+            background: var(--gradient-main);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        #btn-cadastro {
+            background: var(--gradient-main);
+            border: none;
+        }
+
+        /* MAIN CONTENT */
+        .conteudo-principal {
+            margin-top: 90px;
+            padding: 3rem 5%;
+        }
+
+        /* HERO */
+        .hero {
+            height: 75vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-accent);
+            border-radius: 25px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 5s ease-in-out infinite 1s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero__conteudo {
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero__titulo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInLeft 0.8s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero__subtitulo {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .hero__cta {
+            display: inline-block;
+            padding: 1.1rem 3.5rem;
+            background: var(--gradient-main);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero__cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        /* SEÇÕES */
+        .secao__titulo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .secao__lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        /* ATIVIDADES */
+        .atividade__item {
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+        }
+
+        .atividade__item:nth-child(1) {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+        }
+        .atividade__item:nth-child(2) {
+            background: linear-gradient(135deg, #00d9ff 0%, #00b4d8 100%);
+        }
+        .atividade__item:nth-child(3) {
+            background: linear-gradient(135deg, #9d4edd 0%, #c77dff 100%);
+        }
+        .atividade__item:nth-child(4) {
+            background: linear-gradient(135deg, #e0aaff 0%, #d77dff 100%);
+        }
+
+        .atividade__item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .atividade__item:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.4);
+            border-color: rgba(255, 107, 53, 0.6);
+        }
+
+        .atividade__item:hover::before {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .atividade__conteudo {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 1.7rem;
+            font-weight: 800;
+            z-index: 1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .atividade__navegacao {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            font-size: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .atividade__navegacao:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg) scale(1.1);
+        }
+
+        /* PRODUTOS */
+        .produto__item {
+            background: var(--gradient-accent);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .produto__item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .produto__item:hover::before {
+            left: 100%;
+        }
+
+        .produto__item:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.25);
+        }
+
+        .produto__imagem {
+            height: 180px;
+            background: var(--gradient-main);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+        }
+
+        .produto__nome {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .produto__info {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.ativo {
+            display: flex;
+        }
+
+        .modal__conteudo {
+            background: var(--dark-secondary);
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            border-radius: 25px;
+            padding: 3rem;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal__fechar {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(255, 107, 53, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal__fechar:hover {
+            background: var(--gradient-main);
+            transform: rotate(90deg);
+        }
+
+        .modal__titulo {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form__grupo {
+            margin-bottom: 1.5rem;
+        }
+
+        .form__label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form__input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(45, 45, 68, 0.6);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form__input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form__input:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background: rgba(45, 45, 68, 0.9);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.2);
+        }
+
+        .form__botao--submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-main);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .form__botao--submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .form__link-alternativo {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form__link-alternativo a {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .form__link-alternativo a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* MODO ESCURO/CLARO */
+        body.light-mode {
+            --dark-bg: #f5f5f5;
+            --dark-secondary: #ffffff;
+            --dark-tertiary: #eeeeee;
+            --text-light: #1a1a2e;
+            --text-muted: #666666;
+        }
+
+        body.light-mode .cabecalho {
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        body.light-mode .secao-atividades,
+        body.light-mode .secao {
+            background: transparent;
+        }
+
+        body.light-mode .produto__item {
+            background: var(--dark-tertiary);
+            border-color: rgba(255, 107, 53, 0.3);
+        }
+
+        body.light-mode .modal__conteudo {
+            background: white;
+        }
+
+        body.light-mode .form__input {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+            
+            .hero__titulo {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 2rem;
+            }
+
+            .secao__lista {
+                grid-template-columns: 1fr;
+            }
+
+            .busca__input {
+                width: 200px;
+            }
+
+            .busca__input:focus {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="cabecalho__logo-busca">
+            <a href="#" class="logo" title="TECHFIT">TF</a>
+            <div class="busca">
+                <input type="text" placeholder="Buscar Aulas, Planos ou Produtos" class="busca__input">
+                <button class="busca__botao">🔍</button>
+            </div>
+        </div>
+        
+        <nav class="menu">
+            <a href="#" class="menu__item">Home</a>
+            <a href="#" class="menu__item">Planos</a>
+            <a href="#" class="menu__item">Aulas</a>
+            <a href="#" class="menu__item">Produtos</a>
+            <a href="#" class="menu__item">Inscrições</a>
+        </nav>
+        
+        <div class="cabecalho__utilitarios">
+            <button class="utilitario__botao" id="btn-modo">🌙 Modo</button>
+            <a href="#" class="utilitario__link" id="btn-login">Login</a>
+            <a href="#" class="utilitario__link" id="btn-cadastro">Cadastro</a>
+        </div>
+    </header>
+
+    <main class="conteudo-principal">
+        <section class="hero">
+            <div class="hero__conteudo">
+                <h1 class="hero__titulo">Transforme Seu Corpo, Eleve Sua Mente</h1>
+                <p class="hero__subtitulo">A academia mais moderna de São Paulo. Equipamentos de ponta, instrutores certificados e resultados garantidos.</p>
+                <button class="hero__cta">Comece Agora</button>
+            </div>
+        </section>
+
+        <section class="secao-atividades">
+            <h2 class="secao__titulo">Atividades em Destaque</h2>
+            <div class="secao__lista">
+                <div class="atividade__item">
+                    <div class="atividade__conteudo">💪 Treinamento Funcional</div>
+                    <button class="atividade__navegacao">→</button>
+                </div>
+                
+                <div class="atividade__item">
+                    <div class="atividade__conteudo">🧘 Yoga e Alongamento</div>
+                    <button class="atividade__navegacao">→</button>
+                </div>
+                
+                <div class="atividade__item">
+                    <div class="atividade__conteudo">🏊 Natação/Hidroginástica</div>
+                    <button class="atividade__navegacao">→</button>
+                </div>
+                
+                <div class="atividade__item">
+                    <div class="atividade__conteudo">🥊 Boxe Fitness</div>
+                    <button class="atividade__navegacao">→</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2 class="secao__titulo">Produtos para seu Treino</h2>
+            <div class="secao__lista">
+                <div class="produto__item">
+                    <div class="produto__imagem">💪</div>
+                    <p class="produto__nome">Whey Protein</p>
+                    <p class="produto__info">Suplemento Premium<br>Sabor Chocolate<br><strong>R$ 129,90</strong></p>
+                </div>
+                <div class="produto__item">
+                    <div class="produto__imagem">🥤</div>
+                    <p class="produto__nome">Garrafa Térmica</p>
+                    <p class="produto__info">Capacidade 1 Litro<br>Isolamento Duplo<br><strong>R$ 45,00</strong></p>
+                </div>
+                <div class="produto__item">
+                    <div class="produto__imagem">🏋️</div>
+                    <p class="produto__nome">Kit Elásticos</p>
+                    <p class="produto__info">5 Níveis de Resistência<br>Super Resistentes<br><strong>R$ 89,90</strong></p>
+                </div>
+                <div class="produto__item">
+                    <div class="produto__imagem">🧤</div>
+                    <p class="produto__nome">Luva de Treino</p>
+                    <p class="produto__info">Material Premium Couro<br>Conforto e Proteção<br><strong>R$ 55,00</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal-auth" class="modal">
+        <div class="modal__conteudo">
+            <button class="modal__fechar">&times;</button>
+            
+            <h3 class="modal__titulo">Bem-vindo</h3>
+            
+            <form id="form-login" class="modal__form">
+                <div class="form__grupo">
+                    <label for="login-email" class="form__label">Email:</label>
+                    <input type="email" id="login-email" class="form__input" placeholder="seu@email.com" required>
+                </div>
+                <div class="form__grupo">
+                    <label for="login-senha" class="form__label">Senha:</label>
+                    <input type="password" id="login-senha" class="form__input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="form__botao--submit">Entrar</button>
+                <p class="form__link-alternativo">
+                    Não tem conta? <a href="#" id="link-mudar-cadastro">Cadastre-se aqui</a>
+                </p>
+            </form>
+
+            <form id="form-cadastro" class="modal__form" style="display:none;">
+                <div class="form__grupo">
+                    <label for="cadastro-nome" class="form__label">Nome:</label>
+                    <input type="text" id="cadastro-nome" class="form__input" placeholder="Seu Nome" required>
+                </div>
+                <div class="form__grupo">
+                    <label for="cadastro-email" class="form__label">Email:</label>
+                    <input type="email" id="cadastro-email" class="form__input" placeholder="seu@email.com" required>
+                </div>
+                <div class="form__grupo">
+                    <label for="cadastro-senha" class="form__label">Senha:</label>
+                    <input type="password" id="cadastro-senha" class="form__input" placeholder="••••••••" required>
+                </div>
+                <div class="form__grupo">
+                    <label for="cadastro-confirma" class="form__label">Confirmar Senha:</label>
+                    <input type="password" id="cadastro-confirma" class="form__input" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="form__botao--submit">Criar Conta</button>
+                <p class="form__link-alternativo">
+                    Já tem conta? <a href="#" id="link-mudar-login">Fazer Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ELEMENTOS DO DOM
+        const modal = document.getElementById('modal-auth');
+        const btnLogin = document.getElementById('btn-login');
+        const btnCadastro = document.getElementById('btn-cadastro');
+        const btnModo = document.getElementById('btn-modo');
+        const modalFechar = document.querySelector('.modal__fechar');
+        const formLogin = document.getElementById('form-login');
+        const formCadastro = document.getElementById('form-cadastro');
+        const linkMudarCadastro = document.getElementById('link-mudar-cadastro');
+        const linkMudarLogin = document.getElementById('link-mudar-login');
+        const heroBtn = document.querySelector('.hero__cta');
+        const atividades = document.querySelectorAll('.atividade__navegacao');
+        const buscaBotao = document.querySelector('.busca__botao');
+        const buscaInput = document.querySelector('.busca__input');
+
+        // MODAL - Abrir/Fechar
+        function abrirModal() {
+            modal.classList.add('ativo');
+            formLogin.style.display = 'block';
+            formCadastro.style.display = 'none';
+        }
+
+        function fecharModal() {
+            modal.classList.remove('ativo');
+        }
+
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirModal();
+        });
+
+        btnCadastro.addEventListener('click', (e) => {
+            e.preventDefault();
+            abrirModal();
+            formLogin.style.display = 'none';
+            formCadastro.style.display = 'block';
+        });
+
+        modalFechar.addEventListener('click', fecharModal);
+
+        // Fechar modal ao clicar fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                fecharModal();
+            }
+        });
+
+        // Alternar entre login e cadastro
+        linkMudarCadastro.addEventListener('click', (e) => {
+            e.preventDefault();
+            formLogin.style.display = 'none';
+            formCadastro.style.display = 'block';
+        });
+
+        linkMudarLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            formLogin.style.display = 'block';
+            formCadastro.style.display = 'none';
+        });
+
+        // FORMS - Validação e Envio
+        formLogin.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const senha = document.getElementById('login-senha').value;
+            
+            if (email && senha) {
+                console.log('Login realizado:', { email, senha });
+                alert('✅ Login realizado com sucesso!');
+                fecharModal();
+                formLogin.reset();
+            }
+        });
+
+        formCadastro.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nome = document.getElementById('cadastro-nome').value;
+            const email = document.getElementById('cadastro-email').value;
+            const senha = document.getElementById('cadastro-senha').value;
+            const confirma = document.getElementById('cadastro-confirma').value;
+
+            if (senha !== confirma) {
+                alert('❌ As senhas não correspondem!');
+                return;
+            }
+
+            if (nome && email && senha) {
+                console.log('Cadastro realizado:', { nome, email, senha });
+                alert(`✅ Bem-vindo ${nome}! Sua conta foi criada com sucesso!`);
+                fecharModal();
+                formCadastro.reset();
+            }
+        });
+
+        // MODO ESCURO/CLARO
+        let modoEscuro = true;
+        
+        btnModo.addEventListener('click', () => {
+            modoEscuro = !modoEscuro;
+            
+            if (modoEscuro) {
+                document.body.classList.remove('light-mode');
+                btnModo.textContent = '🌙 Modo';
+            } else {
+                document.body.classList.add('light-mode');
+                btnModo.textContent = '☀️ Modo';
+            }
+        });
+
+        // ATIVIDADES - Cliques nos botões
+        atividades.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                const nomes = [
+                    'Treinamento Funcional',
+                    'Yoga e Alongamento',
+                    'Natação/Hidroginástica',
+                    'Boxe Fitness'
+                ];
+                alert(`🎯 Você selecionou: ${nomes[index]}\n\nEscolha um horário para começar!`);
+            });
+        });
+
+        // BUSCA
+        buscaBotao.addEventListener('click', () => {
+            const termo = buscaInput.value.trim();
+            if (termo) {
+                alert(`🔍 Buscando por: "${termo}"`);
+                console.log('Termo buscado:', termo);
+            }
+        });
+
+        buscaInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                buscaBotao.click();
+            }
+        });
+
+        // HERO CTA
+        heroBtn.addEventListener('click', () => {
+            abrirModal();
+            formLogin.style.display = 'block';
+            formCadastro.style.display = 'none';
+        });
+
+        // SCROLL SMOOTH
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // EFEITO DE DIGITAÇÃO NA HERO
+        function efeitoDigitacao(elemento, texto, velocidade = 50) {
+            let i = 0;
+            elemento.textContent = '';
+            
+            function digitar() {
+                if (i < texto.length) {
+                    elemento.textContent += texto.charAt(i);
+                    i++;
+                    setTimeout(digitar, velocidade);
+                }
+            }
+            
+            digitar();
+        }
+
+        // INICIALIZAÇÃO
+        window.addEventListener('load', () => {
+            console.log('🏋️ TECHFIT Academia carregada com sucesso!');
+        });
+
+        // ANIMAÇÃO AO SCROLL
+        const observador = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.produto__item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.5s ease';
+            observador.observe(item);
+        });
+
+        // RIPPLE EFFECT NOS BOTÕES
+        function rippleEffect(e) {
+            const btn = e.currentTarget;
+            const rect = btn.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            btn.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        document.querySelectorAll('button, .menu__item').forEach(el => {
+            el.addEventListener('mousedown', rippleEffect);
+        });
+
+        // LOG DE EVENTOS
+        console.log('%c🎉 TECHFIT - Sistema Carregado!', 'color: #ff6b35; font-size: 16px; font-weight: bold;');
+        console.log('%cDivirta-se no site!', 'color: #9d4edd; font-size: 12px;');
+    </script>

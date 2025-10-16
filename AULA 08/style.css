@@ -1,0 +1,16 @@
+:root {
+    --cor0: red;
+    --cor1: #00FFFF;
+    --fonte0: Arial;
+}
+
+body {
+    font-family: var(--fonte0);
+    background-color: var(--cor1);
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.466);
+}
